@@ -16,7 +16,7 @@ public class TC01 extends TestBase {
 
 		fp.clickFlightTab();
 		fp.cities(configdataprovider.getFromcity(),configdataprovider.getTocity());
-		fp.dates(configdataprovider.getdate());
+		fp.dates(configdataprovider.getdate(),configdataprovider.getday());
 		fp.travellersAndClass();
 		fp.flights();
 		fp.cheapestf();

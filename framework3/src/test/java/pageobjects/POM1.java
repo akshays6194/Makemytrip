@@ -73,7 +73,7 @@ public class POM1 {
 		selectToSuggestion.click();
 	}
 
-	public void dates(String dm) throws InterruptedException {
+	public void dates(String dm, String dd) throws InterruptedException {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[1]/div[3]/label/span")).click();
 		String em = dm;
@@ -81,8 +81,8 @@ public class POM1 {
 		String am = month.getText();
 		for (int i = 0; i <= 12; i++) {
 			if (am.equalsIgnoreCase(em)) {
-				String newUser = "31";
-				driver.findElement(By.xpath("//p[text()=" + newUser + "]")).click();
+				String day = dd;
+				driver.findElement(By.xpath("//p[text()=" + day + "]")).click();
 				break;
 			} else {
 				driver.findElement(By.xpath("//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")).click();
@@ -111,8 +111,9 @@ public class POM1 {
 
 	public void cheapestf() {
 		String str = cheap.getText();
-		str = str.replaceAll("[^0-9]", " ");
-		str = str.trim();
+		str = str.replaceAll("[^0-9]"," ");
+		str = str.replaceAll("\\s", "");
+		str = "Rs."+str;
 		System.out.println(str);
 	}
 
