@@ -1,8 +1,6 @@
 package testbase;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
@@ -21,22 +19,17 @@ public class TestBase {
 	}
 	@BeforeTest
 	
-	public void setUp() throws InterruptedException {
+	public void setUp() {
 		
 		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(configdataprovider.getURL());
-		String oldWindow = driver.getWindowHandle();
-		Thread.sleep(10000);
-		WebElement a = driver.findElement(By.tagName("body"));
-		a.click();
-		driver.switchTo().window(oldWindow);
+		
 	}
 
 	@AfterTest
 	public void tearDown() {
-		System.out.println(driver.getTitle());
 		driver.quit();
 	}
 

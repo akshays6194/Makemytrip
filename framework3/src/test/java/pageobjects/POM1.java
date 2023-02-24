@@ -114,7 +114,7 @@ public class POM1 {
 		str = str.replaceAll("[^0-9]"," ");
 		str = str.replaceAll("\\s", "");
 		str = "Rs."+str;
-		System.out.println(str);
+		System.out.println("cheapest flight rate is ="+str);
 	}
 
 }
